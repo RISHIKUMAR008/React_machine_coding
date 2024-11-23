@@ -1,0 +1,27 @@
+import React from 'react';
+
+import ChildComponent from './ChildComponent'; // Import the child component
+
+
+
+function ParentComponent() {
+
+  const userName = "John Doe"; // Data to pass as a prop
+
+
+
+  return (
+
+    <div>
+
+      <ChildComponent name={userName} />  {/* Pass 'userName' as a prop named 'name'  */}
+
+    </div>
+
+  );
+
+}
+
+
+
+export default ParentComponent;
