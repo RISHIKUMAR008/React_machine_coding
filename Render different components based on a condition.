@@ -1,0 +1,15 @@
+function UserGreeting(props) {
+
+  const isLoggedIn = props.isLoggedIn;
+
+  return (
+
+    <div>
+
+      {isLoggedIn ? <h1>Welcome, {props.username}!</h1> : <p>Please login to view content.</p>}
+
+    </div>
+
+  );
+
+}
