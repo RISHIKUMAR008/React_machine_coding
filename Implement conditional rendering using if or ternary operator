@@ -1,0 +1,41 @@
+import React from 'react';
+
+function App() {
+  const isLoggedIn = true;
+
+  // Using if statement
+  if (isLoggedIn) {
+    return (
+      <div>
+        <h1>Welcome back!</h1>
+        <button>Logout</button>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h1>Please log in.</h1>
+        <button>Login</button>
+      </div>
+    );
+  }
+
+  // Using ternary operator
+  return (
+    <div>
+      {isLoggedIn ? (
+        <>
+          <h1>Welcome back!</h1>
+          <button>Logout</button>
+        </>
+      ) : (
+        <>
+          <h1>Please log in.</h1>
+          <button>Login</button>
+        </>
+      )}
+    </div>
+  );
+}
+
+export default App;
