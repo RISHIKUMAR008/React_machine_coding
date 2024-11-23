@@ -25,3 +25,28 @@ function ParentComponent() {
 
 
 export default ParentComponent;
+
+
+
+
+
+
+
+
+import React from 'react';
+
+
+
+function ChildComponent({ name }) { // Access the 'name' prop
+
+  return (
+
+    <p>Hello, {name}!</p>
+
+  );
+
+}
+
+
+
+export default ChildComponent;
