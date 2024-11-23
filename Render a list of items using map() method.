@@ -1,0 +1,21 @@
+const items = ["apple", "banana", "orange"];
+
+
+
+function MyComponent() {
+
+  return (
+
+    <ul>
+
+      {items.map((item) => (
+
+        <li key={item}>{item}</li>
+
+      ))}
+
+    </ul>
+
+  );
+
+}
