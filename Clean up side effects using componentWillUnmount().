@@ -1,0 +1,19 @@
+import React, { Component } from 'react';
+
+class MyComponent extends Component {
+  componentDidMount() {
+    this.timer = setInterval(() => {
+      // Do something
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer); // Clear the timer
+  }
+
+  render() {
+    return (
+      // Component rendering
+    );
+  }
+}
