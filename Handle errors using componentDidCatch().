@@ -1,0 +1,59 @@
+import React, { Component } from 'react';
+
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null, errorInfo: null };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // You can also log the error to an error reporting service
+    console.error('Error caught:', error);
+    console.error('Error info:', errorInfo);
+
+    this.setState({
+      hasError: true,
+      error: error,
+      errorInfo: errorInfo
+    });
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI here
+      return (
+        <div>
+          <h1>Something went wrong.</h1>
+          <p>{this.state.error.message}</p>
+          <details style={{ whiteSpace: 'pre-wrap' }}>
+            {this.state.errorInfo.componentStack}
+          </details>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
+class MyComponent extends Component {
+  render() {
+    if (this.props.shouldThrowError) {
+      throw new Error('This is a test error.');
+    }
+
+    return <div>Hello World</div>;
+  }
+}
+
+class App extends Component {
+  render() {
+    return (
+      <ErrorBoundary>
+        <MyComponent shouldThrowError={true} />
+      </ErrorBoundary>
+    );
+  }
+}
+
+export default App;
