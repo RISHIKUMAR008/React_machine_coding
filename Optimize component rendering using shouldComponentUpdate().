@@ -1,0 +1,23 @@
+class MyComponent extends React.Component {
+
+  shouldComponentUpdate(nextProps, nextState) {
+
+    if (this.props.value === nextProps.value && this.state.count === nextState.count) {
+
+      return false; // No need to re-render if value and count haven't changed
+
+    }
+
+    return true; // Otherwise, re-render
+
+  }
+
+
+
+  render() {
+
+    // ... render logic
+
+  }
+
+}
