@@ -1,0 +1,26 @@
+import React from 'react';
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: this.props.initialValue
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    // Check if the prop we care about has changed
+    if (this.props.initialValue !== prevProps.initialValue) {
+      // Update state based on the new prop value
+      this.setState({ value: this.props.initialValue });
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.value}
+      </div>
+    );
+  }
+}
