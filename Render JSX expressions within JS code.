@@ -1,0 +1,67 @@
+import React from 'react';
+
+function MyComponent() {
+  const name = "John";
+  const age = 30;
+
+  return (
+    <div>
+      <h1>Hello, {name}!</h1>
+      <p>You are {age} years old.</p>
+    </div>
+  );
+}
+
+
+
+
+import React from 'react';
+
+function MyComponent() {
+  const isLoggedIn = true;
+
+  return (
+    <div>
+      {isLoggedIn ? (
+        <p>Welcome, user!</p>
+      ) : (
+        <p>Please log in.</p>
+      )}
+    </div>
+  );
+}
+
+
+
+
+import React from 'react';
+
+function MyComponent() {
+  const numbers = [1, 2, 3];
+
+  return (
+    <ul>
+      {numbers.map(number => (
+        <li key={number}>{number}</li>
+      ))}
+    </ul>
+  );
+}
+
+
+
+
+import React from 'react';
+
+function Greeting(props) {
+  return <p>Hello, {props.name}!</p>;
+}
+
+function MyComponent() {
+  return (
+    <div>
+      <Greeting name="Alice" />
+      <Greeting name="Bob" />
+    </div>
+  );
+}
