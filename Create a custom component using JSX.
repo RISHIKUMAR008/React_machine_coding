@@ -1,0 +1,23 @@
+import React from 'react';
+
+// Creating a custom component called 'AlertBox' 
+const AlertBox = ({ message, type = 'info' }) => {
+  let alertClass = 'alert';
+  if (type === 'error') alertClass += ' alert-danger';
+  
+  return (
+    <div className={alertClass}>
+      <p>{message}</p>
+    </div>
+  );
+};
+
+// Example usage
+export default function App() {
+  return (
+    <div>
+      <AlertBox message="This is a success message" type="success" />
+      <AlertBox message="Something went wrong!" type="error" />
+    </div>
+  );
+}
