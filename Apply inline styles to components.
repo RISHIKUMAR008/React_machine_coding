@@ -1,0 +1,15 @@
+function MyComponent() {
+
+  const myStyle = { color: 'blue', fontSize: '20px' };
+
+  return (
+
+    <div style={myStyle}>
+
+      This text will be blue and 20px font size.
+
+    </div>
+
+  );
+
+}
