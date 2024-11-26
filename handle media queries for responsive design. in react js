@@ -1,0 +1,102 @@
+import React from 'react';
+
+const MyComponent = () => {
+  return (
+    <div style={{
+      color: 'blue',
+      '@media (min-width: 768px)': {
+        color: 'red'
+      }
+    }}>
+      Hello World
+    </div>
+  );
+};
+
+
+
+- - - - - - - - - - - - - - - - -
+
+/* styles.module.css */
+.container {
+  color: blue;
+}
+
+@media (min-width: 768px) {
+  .container {
+    color: red;
+  }
+}
+
+- - - - - - - - -- -  -
+
+
+
+import React from 'react';
+import styles from './styles.module.css';
+
+const MyComponent = () => {
+  return (
+    <div className={styles.container}>
+      Hello World
+    </div>
+  );
+};
+
+
+
+- - - - - - - - -- - - - - - -
+
+import React from 'react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  color: blue;
+
+  @media (min-width: 768px) {
+    color: red;
+  }
+`;
+
+const MyComponent = () => {
+  return (
+    <Container>
+      Hello World
+    </Container>
+  );
+};
+
+
+- - - - - - - -- - - - - - - - - - - -- 
+
+
+import React from 'react';
+import { useMediaQuery } from '@mui/material';
+
+const MyComponent = () => {
+  const isSmallScreen = useMediaQuery('(max-width: 768px)');
+
+  return (
+    <div>
+      Hello World! I am on a {isSmallScreen ? 'small' : 'large'} screen.
+    </div>
+  );
+};
+
+
+ - - - - - - - -- - - - - - -- - - - -- - 
+
+
+import React from 'react';
+import { MediaQuery } from 'react-responsive';
+
+const MyComponent = () => (
+  <div>
+    <MediaQuery minWidth={768}>
+      <p>This content is only visible on large screens</p>
+    </MediaQuery>
+    <MediaQuery maxWidth={767}>
+      <p>This content is only visible on small screens</p>
+    </MediaQuery>
+  </div>
+);
