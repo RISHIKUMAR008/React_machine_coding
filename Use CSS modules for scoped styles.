@@ -1,0 +1,40 @@
+import styles from './MyComponent.module.css'; // Import the CSS module
+
+
+
+function MyComponent() {
+
+  return (
+
+    <div className={styles.container}>
+
+      <p className={styles.title}>This is a component title</p>
+
+    </div>
+
+  );
+
+}
+
+
+
+export default MyComponent;
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - 
+css
+
+.container {
+
+  background-color: lightblue;
+
+  padding: 20px;
+
+}
+
+
+
+.title {
+
+  font-weight: bold;
+
+}
