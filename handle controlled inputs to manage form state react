@@ -1,0 +1,34 @@
+import React, { useState } from 'react';
+
+function MyForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+  });
+
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+
+
+
+  return (
+    <form>
+      <input 
+        type="text" 
+        name="name" 
+        value={formData.name} 
+        onChange={handleChange} 
+      />
+      <input 
+        type="email" 
+        name="email" 
+        value={formData.email} 
+        onChange={handleChange} 
+      />
+    </form>
+  );
+}
