@@ -1,0 +1,11 @@
+const button = document.getElementById("myButton"); // Get the button element
+
+
+
+button.addEventListener("click", function() { 
+
+  console.log("Button clicked!"); 
+
+  // Add your desired functionality here
+
+}); 
