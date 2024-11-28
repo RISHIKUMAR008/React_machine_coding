@@ -1,0 +1,29 @@
+import { useParams } from 'react-router-dom'; 
+
+
+
+function UserDetail() {
+
+  const { userId } = useParams(); // Access the 'userId' parameter
+
+  
+
+  return (
+
+    <div>
+
+      {/* Display user details based on 'userId' */}
+
+      <p>User ID: {userId}</p>
+
+    </div>
+
+  );
+
+}
+
+
+
+// Route definition
+
+<Route path="/users/:userId" element={<UserDetail />} />
