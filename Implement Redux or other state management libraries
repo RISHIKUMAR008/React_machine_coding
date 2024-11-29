@@ -1,0 +1,93 @@
+    import { createStore } from 'redux';
+
+    import rootReducer from './reducers'; // Your combined reducers
+
+
+
+    const store = createStore(rootReducer, { /* initial state */ }); 
+
+
+
+
+    function increment() {
+
+        return { type: 'INCREMENT' }; 
+
+    }
+
+
+
+
+    function counterReducer(state = 0, action) {
+
+        switch (action.type) {
+
+            case 'INCREMENT': 
+
+                return state + 1;
+
+            default:
+
+                return state;
+
+        }
+
+    }
+
+
+
+
+
+    import { combineReducers } from 'redux';
+
+    const rootReducer = combineReducers({
+
+        counter: counterReducer,
+
+        // ... other reducers
+
+    });
+
+
+
+
+
+    import { connect } from 'react-redux';
+
+
+
+    function CounterComponent(props) {
+
+        return (
+
+            <div>
+
+                <p>Count: {props.count}</p>
+
+                <button onClick={props.increment}>Increment</button>
+
+            </div>
+
+        );
+
+    }
+
+
+
+    const mapStateToProps = state => ({
+
+        count: state.counter
+
+    });
+
+
+
+    const mapDispatchToProps = dispatch => ({
+
+        increment: () => dispatch(increment()) 
+
+    });
+
+
+
+    export default connect(mapStateToProps, mapDispatchToProps)(CounterComponent);
