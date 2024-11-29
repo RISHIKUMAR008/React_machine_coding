@@ -1,0 +1,40 @@
+import React, { memo } from 'react';
+
+
+
+const ExpensiveCalculationComponent = memo((props) => {
+
+    // Expensive calculation here
+
+    const result = calculateSomething(props.data);
+
+    return <div>{result}</div>;
+
+});
+
+
+
+export default ExpensiveCalculationComponent;
+
+
+
+
+import React, { useMemo } from 'react';
+
+
+
+const MyComponent = ({ data }) => {
+
+    const sortedData = useMemo(() => data.sort((a, b) => a - b), [data]); // Only recalculate when 'data' changes
+
+    return (
+
+        <div>
+
+            {/* Render sortedData here */}
+
+        </div>
+
+    );
+
+};
