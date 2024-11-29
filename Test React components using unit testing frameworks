@@ -1,0 +1,39 @@
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import MyComponent from './MyComponent';
+
+test('renders button with correct text', () => {
+  render(<MyComponent />);
+  const buttonElement = screen.getByRole('button', { name: /Click me/i });
+  expect(buttonElement).toBeInTheDocument();
+});
+
+test('button click updates state', () => {
+  render(<MyComponent />);
+  const buttonElement = screen.getByRole('button', { name: /Click me/i });
+  userEvent.click(buttonElement);
+
+  const messageElement = screen.getByText(/Button clicked/i);
+  expect(messageElement).toBeInTheDocument();
+});
+
+
+
+
+
+import React from 'react';
+import { shallow } from 'enzyme';
+import MyComponent from './MyComponent';
+
+describe('MyComponent', () => {
+  it('renders button with correct text', () => {
+    const wrapper = shallow(<MyComponent />);
+    expect(wrapper.find('button').text()).toBe('Click me');
+  });
+
+  it('button click updates state', () => {
+    const wrapper = shallow(<MyComponent />);
+    wrapper.find('button').simulate('click');
+    expect(wrapper.state('message')).toBe('Button clicked');
+  });
+});
