@@ -1,0 +1,32 @@
+   import React, { lazy, Suspense } from 'react';
+
+   const OtherComponent = lazy(() => import('./OtherComponent'));
+
+   function MyComponent() {
+     return (
+       <div>
+         <Suspense fallback={<div>Loading...</div>}>
+           <OtherComponent />
+         </Suspense>
+       </div>
+     );
+   }
+
+
+
+
+   function MyComponent() {
+     const [Component, setComponent] = useState(null);
+
+     useEffect(() => {
+       import('./OtherComponent').then(module => {
+         setComponent(module.default);
+       });
+     }, []);
+
+     return (
+       <div>
+         {Component ? <Component /> : <div>Loading...</div>}
+       </div>
+     );
+   }
