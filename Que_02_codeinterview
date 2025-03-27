@@ -1,0 +1,57 @@
+Find the issue in the below code snippet after rendering the list of names.
+
+
+
+import React from "react";
+ function App() {
+  const names = ["Brian", "Paul", "Krug", "Halley"];
+   const listItems = names.map((name) => <li>{name}</li>);
+   return <ul>{listItems}</ul>;
+}
+export default App;
+Question 3
+Analyze the below code and advise what is wrong with using setState() inside the render() method:
+import React, { Component } from "react";
+ class App extends Component {
+  state = {
+	counter: 0,
+  };
+ 
+  render() {
+	this.setState({ counter: this.state.counter + 1 });
+	return <div>Counter: {this.state.counter}</div>;
+  }
+}
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+Improved version
+
+const listItems = names.map((name, index) => <li key={index}>{name}</li>);
+
+import React, { Component } from "react";
+
+class App extends Component {
+  state = {
+    counter: 0,
+  };
+
+  componentDidMount() {
+    this.setState({ counter: this.state.counter + 1 });
+  }
+
+  render() {
+    return <div>Counter: {this.state.counter}</div>;
+  }
+}
+
+export default App;
