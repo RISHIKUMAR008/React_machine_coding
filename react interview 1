@@ -1,0 +1,57 @@
+import "./styles.css";
+import React, { useState } from "react";
+
+export default function App() {
+  const [selectedName, setSelectedName] = useState("");
+  const [selectedGender, setSelectedGender] = useState("");
+
+  const users = [
+    { id: 1, name: "Alice", gender: "female" },
+    { id: 2, name: "Bob", gender: "male" },
+    { id: 3, name: "Clara", gender: "female" },
+    { id: 4, name: "David", gender: "male" },
+  ];
+
+  const filteredUser = users.filter((ele) => {
+    const filteredName = ele.name
+      .toLowerCase()
+      .includes(selectedName.toLowerCase());
+
+    const matchGender =
+      selectedGender === "" || ele.gender === selectedGender;
+
+    return matchGender && filteredName;
+  });
+
+  return (
+    <div className="App">
+      <h1>Hello CodeSandbox</h1>
+      <h2>Start editing to see some magic happen!</h2>
+
+      <input
+        type="text"
+        placeholder="search name"
+        value={selectedName}
+        onChange={(e) => setSelectedName(e.target.value)}
+      />
+
+      <select
+        value={selectedGender}
+        onChange={(e) => setSelectedGender(e.target.value)}
+      >
+        <option value="">All</option>
+        <option value="male"> Male </option>
+        <option value="female"> Female </option>
+      </select>
+
+      <ul>
+        <p>Filtered Users:</p>
+        {filteredUser.map((item) => (
+          <li key={item.id}>
+            Name: {item.name} | Gender: {item.gender}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
