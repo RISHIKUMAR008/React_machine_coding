@@ -1,0 +1,20 @@
+import './App.css';
+
+const fruits = ["Apple", "Banana", "Mango", "Orange"];
+
+function App() {
+  return (
+    <select>
+      {fruits.map((fruit, index) => (
+        <option key={index} value={fruit}>
+          {fruit}
+        </option>
+      ))}
+    </select>
+  );
+}
+
+
+
+
+export default App;
