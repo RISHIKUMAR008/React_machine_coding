@@ -1,0 +1,51 @@
+import { useState } from "react";
+
+const cities = ["Delhi", "Mumbai", "Bangalore"];
+const roles = ["Frontend", "Backend", "Full Stack"];
+
+function App() {
+  const [showDropdowns, setShowDropdowns] = useState(false);
+  const [city, setCity] = useState("");
+  const [role, setRole] = useState("");
+
+  return (
+    <div>
+      <button onClick={() => setShowDropdowns(true)}>
+        Show Dropdowns
+      </button>
+
+      {showDropdowns && (
+        <div style={{ marginTop: "20px" }}>
+          {/* First Dropdown */}
+          <select value={city} onChange={(e) => setCity(e.target.value)}>
+            <option value="">Select City</option>
+            {cities.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+
+          {/* Second Dropdown */}
+          <select
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            style={{ marginLeft: "10px" }}
+          >
+            <option value="">Select Role</option>
+            {roles.map((r) => (
+              <option key={r} value={r}>
+                {r}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+      <p>{city}</p>
+            <p>{role}</p>
+
+    </div>
+  );
+}
+
+export default App;
